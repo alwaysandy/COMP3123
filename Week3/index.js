@@ -35,6 +35,8 @@ const server = http.createServer((req, res) => {
             employee.forEach((employee) => {
                 employee_names.push([employee.firstName + " " + employee.lastName]);
             });
+
+            employee_names.sort();
             res.writeHead(200, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify(employee_names));
             return;
@@ -45,7 +47,7 @@ const server = http.createServer((req, res) => {
             //e.g. { "total_salary" : 100 }
             const total_salary = employee.reduce((acc, employee) => acc + employee.Salary, 0);
             res.writeHead(200, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify(total_salary));
+            res.end(JSON.stringify({ total_salary: total_salary }));
             return;
         }
 
