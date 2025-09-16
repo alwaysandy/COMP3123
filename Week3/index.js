@@ -25,10 +25,8 @@ const server = http.createServer((req, res) => {
         if (req.url === '/employee') {
             //TODO - Display all details for employees in JSON format
             res.writeHead(200, {'Content-Type': 'text/json'})
-            res.write(JSON.stringify(employee));
-            res.end();
+            res.end(JSON.stringify(employee));
             return;
-            // res.write(employee.employees);
         }
 
         if (req.url === '/employee/names') {
@@ -38,9 +36,8 @@ const server = http.createServer((req, res) => {
             employee.forEach((employee) => {
                 employee_names.push([employee.firstName + " " + employee.lastName]);
             });
-            res.writeHead(200, { 'Content-Type': 'text/json' })
-            res.write(JSON.stringify(employee_names));
-            res.end();
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify(employee_names));
             return;
         }
 
@@ -48,9 +45,8 @@ const server = http.createServer((req, res) => {
             //TODO - Display Sum of all employees salary in given JSON format
             //e.g. { "total_salary" : 100 }
             const total_salary = employee.reduce((acc, employee) => acc + employee.Salary, 0);
-            res.writeHead(200, { 'Content-Type': 'text/json' })
-            res.write(JSON.stringify(total_salary));
-            res.end();
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify(total_salary));
             return;
         }
 
