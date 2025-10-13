@@ -3,7 +3,6 @@ const app = express();
 const userRouter = require('./routes/users');
 const path = require('path');
 
-
 // Add User Router
 app.use(express.json());
 app.use('/api/v1/user', userRouter);
