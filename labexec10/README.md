@@ -1,5 +1,7 @@
 # Basic Redux Example
 
+## Run with npm start
+
 ### State
 Redux state is stored in a basic JS object. It's a read only, immutable object, that stores the state for an application.
 
